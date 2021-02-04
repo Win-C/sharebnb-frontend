@@ -15,11 +15,11 @@ import React, { useState } from "react";
 
 
 const PREFILLED_FORM = {
-  username: "test5",
+  username: "test6",
   first_name: "test",
   last_name: "test",
   password: "password",
-  email: "test5@test.com",
+  email: "test6@test.com",
   image_url: "",
   location: "Canada",
 };
