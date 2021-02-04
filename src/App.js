@@ -25,10 +25,12 @@ function App() {
    */
   async function signup(userFormData) {
     const response = await axios({
-      url: `${BASE_URL}/uploaded`,
+      url: `${BASE_URL}/signup`,
+      headers: {"Content-Type": "multipart/form-data"},
       method: "POST",
       data: userFormData,
     });
+    console.log("response = ", response);
     return response.data;
   }
   

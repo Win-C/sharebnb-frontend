@@ -15,16 +15,18 @@ import React, { useState } from "react";
 
 
 const PREFILLED_FORM = {
-  username: "test",
+  username: "test5",
   first_name: "test",
   last_name: "test",
-  email: "test@test.com",
+  password: "password",
+  email: "test5@test.com",
   image_url: "",
   location: "Canada",
 };
 
 function SignupForm({ signup }) {
   const [formData, setFormData] = useState(PREFILLED_FORM);
+  const [imageSource, setImageSource] = useState("");
 
 
   /** Handle input changes and update form state */
@@ -42,6 +44,12 @@ function SignupForm({ signup }) {
       ...prevData,
       image_url: evt.target.files[0],
     }));
+    let reader = new FileReader();
+    let file = evt.target.files[0]
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setImageSource(reader.result);
+    };
   }
 
 
@@ -69,6 +77,7 @@ function SignupForm({ signup }) {
 
   return (
     <div className="SignupForm">
+      <img className="SignupForm-image" src={imageSource} alt="user"/>
       <form
         className="UserSignUpForm"
         encType="multipart/form-data"
