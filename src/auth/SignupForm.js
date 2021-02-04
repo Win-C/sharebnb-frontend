@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 /** Signup Form for access to site features
  *
@@ -38,7 +39,7 @@ const INITIAL_FORM_DATA = {
 function SignupForm({ signup, initialFormData = INITIAL_FORM_DATA }) {
   const [formData, setFormData] = useState(PREFILLED_FORM);
   const [imageSource, setImageSource] = useState("");
-
+  const history = useHistory();
 
   /** Handle input changes and update form state */
   function handleChange(evt) {
@@ -76,6 +77,14 @@ function SignupForm({ signup, initialFormData = INITIAL_FORM_DATA }) {
     
     let result = await signup(formToSubmit);
     console.debug("Result: ", result);
+
+    if (result.success) {
+      history.push("/");
+    } else {
+      // TODO: Add error local state to render error alerts
+      console.error(":( User already exists or pw too short");
+    }
+
   }
 
   return (

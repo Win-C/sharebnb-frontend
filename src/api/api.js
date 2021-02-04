@@ -32,9 +32,8 @@ class ShareBnBApi {
       return (await axios({ url, method, data, params, headers })).data;
     } catch (err) {
       console.error("API Error:", err.response);
-      // let message = err.response.data.error.message;
-      // throw Array.isArray(message) ? message : [message];
-      throw ["Cannot signup"]
+      let messages = err.response.data.errors;
+      throw Array.isArray(messages) ? messages : [messages];
     }
   }
 

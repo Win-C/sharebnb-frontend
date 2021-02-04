@@ -1,6 +1,8 @@
 import { Route, Switch, Redirect } from "react-router-dom";
 import Homepage from './homepage/Homepage';
 import SignupForm from './auth/SignupForm';
+import LoginForm from "./auth/LoginForm";
+
 
 /** Routes for ShareBnB
  * 
@@ -17,18 +19,21 @@ import SignupForm from './auth/SignupForm';
  *    Redirect - to Homepage
  **/  
 
-function Routes( { signup, currentUser }) {
+function Routes( { signup, login, currentUser }) {
   return (
     <Switch>
       <Route exact path="/">
-        <Homepage currentUser={currentUser}/>
+        <Homepage currentUser={currentUser} />
       </Route>
       <Route exact path="/signup">
-        <SignupForm signup={signup}/>
+        <SignupForm signup={signup} />
+      </Route>
+      <Route exact path="/login">
+        <LoginForm login={login} />
       </Route>
       <Redirect to="/" />
     </Switch>
-  )
+  );
 }
 
 export default Routes;

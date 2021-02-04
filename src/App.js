@@ -1,14 +1,13 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import jwt from "jsonwebtoken";
 import { BrowserRouter } from "react-router-dom";
 import Navigation from "./Navigation";
 import Routes from "./Routes";
 import ShareBnBApi from "./api/api";
 import useLocalStorage from "./hooks/useLocalStorage";
+import LoadingSpinner from "./LoadingSpinner";
 
-const BASE_URL = "http://127.0.0.1:5000";
 const TOKEN_STORAGE_ID = "sharebnb-token";
 
 /** App for ShareBnB
@@ -26,7 +25,7 @@ const TOKEN_STORAGE_ID = "sharebnb-token";
  * - token: for logged in users, this is their authentication JWT.
  *   Is required to be set for most API calls. This is initially read from
  *   localStorage and synced to there via the useLocalStorage hook.
- * 
+ *
  * App -> Navigation
  *     -> Routes
  **/
@@ -80,9 +79,27 @@ function App() {
       setToken(token);
     } catch (errors) {
       console.error("No token received: ", errors);
+      return { success: false };
     }
 
     console.debug("signup response = ", token);
+    return { success: true };
+  }
+
+  /** login user with form data to API */
+  async function login(userFormData) {
+    let token;
+    try {
+      token = await ShareBnBApi.loginUser(userFormData);
+      setToken(token);
+    } catch (errors) {
+      console.error("No token received: ", errors);
+      return { success: false };
+    }
+    console.debug("login response = ", token);
+    return {
+      success: true,
+    };
   }
 
   /** logout user with API */
@@ -91,11 +108,13 @@ function App() {
     setCurrentUser(null);
   }
 
+  if (!infoLoaded) return <LoadingSpinner />;
+
   return (
     <div className="App">
       <BrowserRouter>
         <Navigation currentUser={currentUser} logout={logout} />
-        <Routes signup={signup} currentUser={currentUser} />
+        <Routes signup={signup} login={login} currentUser={currentUser} />
       </BrowserRouter>
     </div>
   );
