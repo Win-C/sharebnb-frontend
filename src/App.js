@@ -1,14 +1,15 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-// import jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import { BrowserRouter } from "react-router-dom";
 import Navigation from "./Navigation";
 import Routes from "./Routes";
 import ShareBnBApi from "./api/api";
-// import useLocalStorage from "./hooks/useLocalStorage";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 const BASE_URL = "http://127.0.0.1:5000";
+const TOKEN_STORAGE_ID = "sharebnb-token";
 
 /** App for ShareBnB
  * renders Routes and Navigation bar
@@ -30,67 +31,71 @@ const BASE_URL = "http://127.0.0.1:5000";
  *     -> Routes
  **/
 function App() {
-  // const [infoLoaded, setInfoLoaded] = useState(false);
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [currentUser, setCurrentUser] = useState(null);
-  // const [token, setToken] = useLocalStoarage(TOKEN_STORAGE_ID);
+  const [infoLoaded, setInfoLoaded] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
 
-  // Load user info from API. Until a user is logged in and they have a token,
-  // this should not run. It only needs to re-run when a user logs out, so
-  // the value of the token is a dependency for this effect.
+  /** Load user info from API. Until a user is logged in and they have a token,
+   * this should not run. It only needs to re-run when a user logs out, so
+   * the value of the token is a dependency for this effect.
+   **/
+  useEffect(
+    function loadUserInfo() {
+      console.debug("App useEffect loadUserInfo", "token=", token);
 
-  // useEffect(function loadUserInfo() {
-  //   console.debug("App useEffect loadUserInfo", "token=", token);
+      async function getCurrentUser() {
+        if (token) {
+          try {
+            // username and is_admin nested in user_claims obj
+            let { user_claims } = jwt.decode(token);
+            ShareBnBApi.token = token;
+            let currentUser = await ShareBnBApi.getCurrentUser(
+              user_claims.username
+            );
+            setCurrentUser(currentUser);
+          } catch (err) {
+            console.error("App loadUserInfo: problem loading", err);
+            setCurrentUser(null);
+          }
+        }
+        setInfoLoaded(true);
+      }
 
-  //   async function getCurrentUser() {
-  //     if (token) {
-  //       try {
-  //         let { username } = jwt.decode(token);
-  //         // put the token on the Api class so it can use it to call the API.
-  //         JoblyApi.token = token;
-  //         let currentUser = await JoblyApi.getCurrentUser(username);
-  //         setCurrentUser(currentUser);
-  //         setApplicationIds(new Set(currentUser.applications));
-  //       } catch (err) {
-  //         console.error("App loadUserInfo: problem loading", err);
-  //         setCurrentUser(null);
-  //       }
-  //     }
-  //     setInfoLoaded(true);
-  //   }
-
-  //   // set infoLoaded to false while async getCurrentUser runs; once the
-  //   // data is fetched (or even if an error happens!), this will be set back
-  //   // to false to control the spinner.
-  //   setInfoLoaded(false);
-  //   getCurrentUser();
-  // }, [token]);
+      // set infoLoaded to false while async getCurrentUser runs; once the
+      // data is fetched (or even if an error happens!), this will be set back
+      // to false to control the spinner.
+      setInfoLoaded(false);
+      getCurrentUser();
+    },
+    [token]
+  );
 
   // TODO: create function to handle logout
 
-
-  /** signup user with form data to API
-   * NOTE: backend needs to enable CORS for API routes, this was done
-   * with Express with app.use(cors()), need to do the same with Flask backend
-   */
+  /** signup user with form data to API */
   async function signup(userFormData) {
-    const response = await ShareBnBApi.signupUser(userFormData);
-    
-    // const response = await axios({
-    //   url: `${BASE_URL}/signup`,
-    //   headers: {"Content-Type": "multipart/form-data"},
-    //   method: "POST",
-    //   data: userFormData,
-    // });
-    console.log("response = ", response);
-    return response.data;
+    let token;
+    try {
+      token = await ShareBnBApi.signupUser(userFormData);
+      setToken(token);
+    } catch (errors) {
+      console.error("No token received: ", errors);
+    }
+
+    console.debug("signup response = ", token);
   }
-  
+
+  /** logout user with API */
+  function logout() {
+    setToken(null);
+    setCurrentUser(null);
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
-        <Navigation />
-        <Routes signup={signup}/>
+        <Navigation currentUser={currentUser} logout={logout} />
+        <Routes signup={signup} currentUser={currentUser} />
       </BrowserRouter>
     </div>
   );

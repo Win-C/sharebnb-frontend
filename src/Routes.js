@@ -17,11 +17,11 @@ import SignupForm from './auth/SignupForm';
  *    Redirect - to Homepage
  **/  
 
-function Routes( { signup }) {
+function Routes( { signup, currentUser }) {
   return (
     <Switch>
       <Route exact path="/">
-        <Homepage />
+        <Homepage currentUser={currentUser}/>
       </Route>
       <Route exact path="/signup">
         <SignupForm signup={signup}/>

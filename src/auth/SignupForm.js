@@ -4,6 +4,7 @@ import React, { useState } from "react";
  *
  * props:
  * - signup: fnm to be called in parent
+ * - initialFormData: empty form data obj in default props
  *
  * state:
  * - formData obj like,
@@ -13,7 +14,7 @@ import React, { useState } from "react";
  * Routes -> SignupForm
  **/
 
-
+// for tests
 const PREFILLED_FORM = {
   username: "test6",
   first_name: "test",
@@ -24,7 +25,17 @@ const PREFILLED_FORM = {
   location: "Canada",
 };
 
-function SignupForm({ signup }) {
+const INITIAL_FORM_DATA = {
+  username: "",
+  first_name: "",
+  last_name: "",
+  password: "",
+  email: "",
+  image_url: "",
+  location: "",
+};
+
+function SignupForm({ signup, initialFormData = INITIAL_FORM_DATA }) {
   const [formData, setFormData] = useState(PREFILLED_FORM);
   const [imageSource, setImageSource] = useState("");
 
@@ -56,23 +67,15 @@ function SignupForm({ signup }) {
   /** Handle submit of SignupForm */
   async function handleSubmit(evt) {
     evt.preventDefault();
+
     let formToSubmit = new FormData();
     for (let key in formData) {
       formToSubmit.append(key, formData[key]);
     }
     console.debug("signupform= ", formToSubmit);
-    // NOTE: Need to figure out if FormData obj makes the multipart setting redundant
-    // const config = {
-    //   headers: {
-    //     "content-type": "multipart/form-data",
-    //   },
-    // };
-
+    
     let result = await signup(formToSubmit);
-
     console.debug("Result: ", result);
-
-  // console.debug("puppy file? ", files[0]);
   }
 
   return (
@@ -96,7 +99,7 @@ function SignupForm({ signup }) {
           type="text"
           id="username"
           name="username"
-          value="test"
+          value={formData.username}
           placeholder="username"
           onChange={handleChange}
         />
@@ -106,7 +109,7 @@ function SignupForm({ signup }) {
           type="text"
           id="first_name"
           name="first_name"
-          value="test"
+          value={formData.first_name}
           placeholder="first_name..."
           onChange={handleChange}
         />
@@ -116,7 +119,7 @@ function SignupForm({ signup }) {
           type="text"
           id="last_name"
           name="last_name"
-          value="test"
+          value={formData.last_name}
           placeholder="last_name"
           onChange={handleChange}
         />
@@ -126,7 +129,7 @@ function SignupForm({ signup }) {
           type="email"
           id="email"
           name="email"
-          value="test@test.com"
+          value={formData.email}
           placeholder="email"
           onChange={handleChange}
         />
@@ -136,7 +139,7 @@ function SignupForm({ signup }) {
           type="password"
           id="password"
           name="password"
-          value="password"
+          value={formData.password}
           placeholder="password"
           onChange={handleChange}
         />
@@ -146,7 +149,7 @@ function SignupForm({ signup }) {
           type="text"
           id="location"
           name="location"
-          value="Canada"
+          value={formData.location}
           placeholder="location"
           onChange={handleChange}
         />

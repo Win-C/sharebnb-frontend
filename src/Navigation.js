@@ -4,7 +4,7 @@ import { NavLink, Link } from "react-router-dom";
  *
  * props:
  * - logout: fn passed from parent
- * - curr_user: user obj (may change this to React Context instead of props)
+ * - currUser: user obj 
  *
  * state:
  * - none
@@ -12,7 +12,7 @@ import { NavLink, Link } from "react-router-dom";
  * App -> Navigation
  * */
 
-function Navigation() {
+function Navigation({ currentUser, logout }) {
   /** Helper to render auth links if no logged in user*/
   function renderLoggedOutLinks() {
     return (
@@ -36,6 +36,11 @@ function Navigation() {
         <li className="nav-item mr-4">
           <NavLink to="/listings">Listings</NavLink>
         </li>
+        <li className="nav-item mr-4">
+          <Link className="" to="/" onClick={logout}>
+            Log out, { currentUser.username} :(
+          </Link>
+        </li>
       </ul>
     );
   }
@@ -57,7 +62,7 @@ function Navigation() {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        {renderLoggedOutLinks()}
+        {currentUser ? renderLoggedInLinks() : renderLoggedOutLinks()}
       </div>
     </nav>
   );
