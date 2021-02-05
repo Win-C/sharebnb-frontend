@@ -111,12 +111,12 @@ function App() {
   if (!infoLoaded) return <LoadingSpinner />;
 
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Navigation currentUser={currentUser} logout={logout} />
+    <BrowserRouter>
+      <Navigation currentUser={currentUser} logout={logout} />
+      <div className="App container">
         <Routes signup={signup} login={login} currentUser={currentUser} />
+      </div>
       </BrowserRouter>
-    </div>
   );
 }
 

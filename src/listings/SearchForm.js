@@ -17,7 +17,7 @@ import React, { useState } from "react";
  */
 
 const INITIAL_FORM_DATA = {
-  max_price: 1000,
+  max_price: "",
   latitude: "",
   longitude: "",
   beds: "",

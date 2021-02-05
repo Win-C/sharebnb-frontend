@@ -4,6 +4,7 @@ import SignupForm from './auth/SignupForm';
 import LoginForm from "./auth/LoginForm";
 import Listings from "./listings/Listings";
 import ListingDetail from "./listings/ListingDetail";
+import PrivateRoute from './PrivateRoute';
 
 
 /** Routes for ShareBnB
@@ -27,12 +28,12 @@ function Routes( { signup, login, currentUser }) {
       <Route exact path="/">
         <Homepage currentUser={currentUser} />
       </Route>
-      <Route exact path="/listings">
-        <Listings currentUser={currentUser} />
-      </Route>
-      <Route exact path="/listings/:id">
-        <ListingDetail currentUser={currentUser} />
-      </Route>
+      <PrivateRoute exact path="/listings" currentUser={currentUser}>
+        <Listings />
+      </PrivateRoute>
+      <PrivateRoute exact path="/listings/:id" currentUser={currentUser}>
+        <ListingDetail />
+      </PrivateRoute>
       <Route exact path="/signup">
         <SignupForm signup={signup} />
       </Route>

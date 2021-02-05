@@ -28,23 +28,25 @@ function ListingDetail() {
   if (!listing) return <LoadingSpinner />;
 
   return (
-      <div className="ListingDetail col-md-8 offset-md-2">
-        <div className="">
+      <div className="ListingDetail col-md-8 offset-md-2 card">
+        <div className="card-body">
           <img 
-            className="" 
+            className="card-img" 
             src={listing.photo}
             alt={listing.title}
             />
-          <h4>{listing.title}</h4>
-          <p>{listing.description}</p>
-          <p>{listing.price}</p>
-          <p>{listing.longitude}</p>
-          <p>{listing.latitude}</p>
-          <p>{listing.beds}</p>
-          <p>{listing.rooms}</p>
-          <p>{listing.bathrooms}</p>
-          <p>{listing.created_by}</p>
-          <p>{listing.rented_by ? "Not Available!" : "Available!"}</p>
+          <div className="card-text">
+            <h4>{listing.title}</h4>
+            <p>Description: {listing.description}</p>
+            <p>Price: ${listing.price}</p>
+            <p>Long: {listing.longitude}</p>
+            <p>Lat: {listing.latitude}</p>
+            <p># of Beds:{listing.beds}</p>
+            <p># of Rooms: {listing.rooms}</p>
+            <p># of Bathrooms: {listing.bathrooms}</p>
+            <p>Owner: {listing.created_by}</p>
+            <p>{listing.rented_by ? "Not Available!" : "Available!"}</p>
+          </div>
         </div>
       </div>
   );
