@@ -74,7 +74,7 @@ function SignupForm({ signup, initialFormData = INITIAL_FORM_DATA }) {
       formToSubmit.append(key, formData[key]);
     }
     console.debug("signupform= ", formToSubmit);
-    
+
     let result = await signup(formToSubmit);
     console.debug("Result: ", result);
 
@@ -88,8 +88,8 @@ function SignupForm({ signup, initialFormData = INITIAL_FORM_DATA }) {
   }
 
   return (
-    <div className="SignupForm">
-      <img className="SignupForm-image" src={imageSource} alt="user"/>
+    <div className="SignupForm mb-4">
+      <img className="SignupForm-image" src={imageSource} alt="user" />
       <form
         className="UserSignUpForm"
         encType="multipart/form-data"
@@ -163,7 +163,12 @@ function SignupForm({ signup, initialFormData = INITIAL_FORM_DATA }) {
           onChange={handleChange}
         />
 
-        <button>Submit me!</button>
+        <button
+          type="submit"
+          className="btn btn-lg btn-primary"
+        >
+          Submit me!
+        </button>
       </form>
     </div>
   );

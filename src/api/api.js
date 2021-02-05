@@ -67,10 +67,20 @@ class ShareBnBApi {
   }
   
   // TODO: Messages endpoints
-  // TODO: Listings endpoints
+
+  // Listings Routes
+
+  /** Get all listings. */
+  static async getAllListings(searchParams) {
+    let res = await this.request("listings", searchParams);
+    return res.listings;
+  }
+
+  /** Get a single listing. */
+  static async getListing(id) {
+    let res = await this.request(`listings/${id}`);
+    return res.listing;
+  }
 }
 
-
 export default ShareBnBApi;
-
-ShareBnBApi.token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTI0NzAzNzgsIm5iZiI6MTYxMjQ3MDM3OCwianRpIjoiNTY4ZjdmZjEtNWU5OS00MzlhLWI3NDEtNTcxYjVhYjJhN2VlIiwiZXhwIjoxNjEyNDcxMjc4LCJpZGVudGl0eSI6InRlc3QiLCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJ1c2VybmFtZSI6InRlc3QiLCJpc19hZG1pbiI6ZmFsc2V9fQ.cMlzxcvFj9yF_4122CaD1HeogHXNvyp3FnWSZRQmqbI";
