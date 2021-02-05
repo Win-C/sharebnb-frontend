@@ -69,8 +69,6 @@ function App() {
     [token]
   );
 
-  // TODO: create function to handle logout
-
   /** signup user with form data to API */
   async function signup(userFormData) {
     let token;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import "../forms.css";
 
 /** Signup Form for access to site features
  *
@@ -17,13 +18,13 @@ import { useHistory } from "react-router-dom";
 
 // for tests
 const PREFILLED_FORM = {
-  username: "test6",
+  username: "test",
   first_name: "test",
   last_name: "test",
   password: "password",
-  email: "test6@test.com",
+  email: "test@test.com",
   image_url: "",
-  location: "Canada",
+  location: "test",
 };
 
 const INITIAL_FORM_DATA = {
@@ -88,86 +89,136 @@ function SignupForm({ signup, initialFormData = INITIAL_FORM_DATA }) {
   }
 
   return (
-    <div className="SignupForm mb-4">
-      <img className="SignupForm-image" src={imageSource} alt="user" />
+    <div className="SignupForm mx-auto col-12 col-sm-10 col-md-8 col-lg-6 mt-5">
+      <img 
+        className="SignupForm-image img-thumbnail" 
+        src={imageSource} 
+        alt="profile" 
+        />
       <form
         className="UserSignUpForm"
         encType="multipart/form-data"
         onSubmit={handleSubmit}
       >
-        <label htmlFor="image_url">Profile Image: </label>
-        <input
-          type="file"
-          id="image_url"
-          name="image_url"
-          onChange={handleImageChange}
-        />
+        <div className="input-group mb-3">
+          <div className="custom-file">
+            <input
+              className="custom-file-input"
+              type="file"
+              id="image_url"
+              name="image_url"
+              onChange={handleImageChange}
+            />
+            <label
+              className="custom-file-label d-flex align-items-start" 
+              htmlFor="image_url">
+                Select a profile image
+            </label>
+          </div>
+          <div className="input-group-append">
+            <button 
+              className="btn btn-primary"
+              type="button">
+                Select
+            </button>
+          </div>
+        </div>
 
-        <label htmlFor="username">Username: </label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          value={formData.username}
-          placeholder="username"
-          onChange={handleChange}
-        />
+        <div className="form-group formField mb-4">
+          <input
+            className="formInput"
+            type="text"
+            id="username"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+          />
+          <label 
+            className="formLabel"
+            htmlFor="username">Username: 
+          </label>
+        </div>
 
-        <label htmlFor="first_name">First Name: </label>
-        <input
-          type="text"
-          id="first_name"
-          name="first_name"
-          value={formData.first_name}
-          placeholder="first_name..."
-          onChange={handleChange}
-        />
+        <div className="form-group formField mb-4">
+          <input
+            className="formInput"
+            type="text"
+            id="first_name"
+            name="first_name"
+            value={formData.first_name}
+            onChange={handleChange}
+          />
+          <label 
+            className="formLabel"
+            htmlFor="first_name">First Name: 
+          </label>
+        </div>
 
-        <label htmlFor="last_name">Last Name: </label>
-        <input
-          type="text"
-          id="last_name"
-          name="last_name"
-          value={formData.last_name}
-          placeholder="last_name"
-          onChange={handleChange}
-        />
+        <div className="form-group formField mb-4">
+          <input
+            className="formInput"
+            type="text"
+            id="last_name"
+            name="last_name"
+            value={formData.last_name}
+            onChange={handleChange}
+          />
+          <label 
+            className="formLabel"
+            htmlFor="last_name">Last Name: 
+          </label>
+        </div>
 
-        <label htmlFor="email">Email: </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          placeholder="email"
-          onChange={handleChange}
-        />
+        <div className="form-group formField mb-4">
+          <input
+            className="formInput"
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+          <label 
+            className="formLabel"
+            htmlFor="email">Email: 
+          </label>
+        </div>
 
-        <label htmlFor="password">Password: </label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={formData.password}
-          placeholder="password"
-          onChange={handleChange}
-        />
+        <div className="form-group formField mb-4">
+          <input
+            className="formInput"
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+          />
+          <label 
+            className="formLabel"
+            htmlFor="password">Password: 
+          </label>
+        </div>
 
-        <label htmlFor="location">Location: </label>
-        <input
-          type="text"
-          id="location"
-          name="location"
-          value={formData.location}
-          placeholder="location"
-          onChange={handleChange}
-        />
+        <div className="form-group formField mb-4">
+          <input
+            className="formInput"
+            type="text"
+            id="location"
+            name="location"
+            value={formData.location}
+            onChange={handleChange}
+          />
+          <label 
+            className="formLabel"
+            htmlFor="location">Location: 
+          </label>
+        </div>
 
         <button
           type="submit"
-          className="btn btn-lg btn-primary"
+          className="btn btn-lg btn-primary mb-3"
         >
-          Submit me!
+          Sign up!
         </button>
       </form>
     </div>

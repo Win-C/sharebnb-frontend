@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../forms.css";
 
 /** Search widget.
  *
@@ -51,67 +52,91 @@ function SearchForm({ searchFor, initialFormData = INITIAL_FORM_DATA }) {
   }
 
   return (
-    <div className="SearchForm container mb-4 ">
-      <form className="form-group" onSubmit={handleSubmit}>
-        <div className="my-1">
-          <label htmlFor="max_price">Max price of: </label>
+    <div className="SearchForm mx-auto col-12 col-sm-10 col-md-8 col-lg-6 mt-5">
+      <form 
+        className="SearchForm" 
+        onSubmit={handleSubmit}>
+
+        <div className="form-group formField mb-4">
           <input
+            className="formInput"
             type="number"
             id="max_price"
             name="max_price"
             value={formData.max_price}
-            placeholder="max_price"
             onChange={handleChange}
           />
+          <label 
+            className="formLabel"
+            htmlFor="max_price">Max price of: 
+          </label>
         </div>
-        <div className="my-1">
-          <label htmlFor="latitude">Location latitude: </label>
+
+        <div className="form-group formField mb-4">
           <input
+            className="formInput"
             type="number"
             id="latitude"
             name="latitude"
             value={formData.latitude}
-            placeholder="latitude"
             onChange={handleChange}
           />
+          <label 
+            className="formLabel"
+            htmlFor="latitude">Location latitude: 
+          </label>
         </div>
-        <div className="my-1">
-          <label htmlFor="longitude">Location longitude: </label>
+
+        <div className="form-group formField mb-4">
           <input
+            className="formInput"
             type="number"
             id="longitude"
             name="longitude"
             value={formData.longitude}
-            placeholder="longitude"
             onChange={handleChange}
           />
+          <label 
+            className="formLabel"
+            htmlFor="longitude">Location longitude: 
+          </label>
         </div>
-        <div className="my-1">
-          <label htmlFor="beds">Beds: </label>
+
+        <div className="form-group formField mb-4">
           <input
+            className="formInput"
             type="number"
             id="beds"
             name="beds"
             value={formData.beds}
-            placeholder="beds"
             onChange={handleChange}
           />
+          <label 
+            className="formLabel"
+            htmlFor="beds">Beds: 
+          </label>
         </div>
-        <div className="my-1">
-          <label htmlFor="bathrooms">Bathrooms: </label>
+
+        <div className="form-group formField mb-4">
           <input
+            className="formInput"
             type="number"
             id="bathrooms"
             name="bathrooms"
             value={formData.bathrooms}
-            placeholder="bathrooms"
             onChange={handleChange}
           />
+          <label 
+            className="formLabel"
+            htmlFor="bathrooms">Bathrooms: 
+          </label>
         </div>
 
-        <button type="submit" className="btn btn-lg btn-primary">
+        <button 
+          type="submit" 
+          className="btn btn btn-primary mb-3">
           Search
-          </button>
+        </button>
       </form>
     </div>
   );

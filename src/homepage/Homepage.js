@@ -15,7 +15,7 @@ function Homepage({ currentUser }) {
   /** Renders logged in user info for homepage */  
   function renderUserDiv() {
     return (
-      <p>Check out this cool site, {currentUser.first_name}</p>
+      <p>Check out this cool site, {currentUser.first_name}!</p>
     )
   }
 
@@ -23,10 +23,16 @@ function Homepage({ currentUser }) {
   function renderAuthLinks() {
     return (
       <div className="row justify-content-center">
-        <Link className="btn btn-primary" to="/login">
+        <Link 
+          to="/login"
+          className="btn btn-primary mx-2" 
+          >
           Log in
         </Link>
-        <Link className="btn btn-primary" to="/signup">
+        <Link 
+          to="/signup"
+          className="btn btn-primary mx-2" 
+          >
           Sign up
         </Link>
       </div>
@@ -35,8 +41,8 @@ function Homepage({ currentUser }) {
 
   return (
     <div className="Homepage">
-      <div className="container text-center">
-        <h2>Welcome to ShareBnB</h2>
+      <div className="container text-center mt-5">
+        <h3>Welcome to ShareBnB!</h3>
 
         {currentUser ? renderUserDiv() : renderAuthLinks()}
       </div>

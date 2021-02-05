@@ -11,10 +11,10 @@ import ListingItem from "./ListingItem";
 
 function ListingList({ listings }){
   return (
-    <div className="ListingList col-md-8 offset-md-2">
+    <div className="ListingList mx-auto col-12 col-sm-10 col-md-8 col-lg-6 mt-5">
         {listings.length
             ? (
-                <div className="ListingList-list">
+                <div className="card-deck">
                   {listings.map(l => (
                       <ListingItem
                           key={l.id}

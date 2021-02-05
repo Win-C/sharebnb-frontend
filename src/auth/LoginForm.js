@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
+import "../forms.css";
 
 /** Login Form for access to site features
  *
@@ -46,34 +47,46 @@ function LoginForm({
   }
 
   return (
-    <div className="LoginForm">
+    <div className="LoginForm mx-auto col-12 col-sm-10 col-md-8 col-lg-6 mt-5">
       <form
         className="LoginForm-form"
-        encType="multipart/form-data"
         onSubmit={handleSubmit}
       >
+        <div className="form-group formField mb-4">
+          <input
+            className="formInput"
+            type="text"
+            id="username"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+          />
+          <label 
+            className="formLabel"
+            htmlFor="username">Username: 
+          </label>
+        </div>
 
-        <label htmlFor="username">Username: </label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          value={formData.username}
-          placeholder="username"
-          onChange={handleChange}
-        />
+        <div className="form-group formField mb-4">
+          <input
+            className="formInput"
+            type="password"
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+          />
+          <label 
+            className="formLabel"
+            htmlFor="password">Password: 
+          </label>
+        </div>
 
-        <label htmlFor="password">Password: </label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={formData.password}
-          placeholder="password"
-          onChange={handleChange}
-        />
-
-        <button>Login</button>
+        <button
+          type="submit"
+          className="btn btn-lg btn-primary mb-3"
+          >Login!
+        </button>
       </form>
     </div>
   );

@@ -1,4 +1,5 @@
 import { NavLink, Link } from "react-router-dom";
+import "./NavBar.css"
 
 /** Navigation bar to render list of NavLinks for site
  *
@@ -34,11 +35,11 @@ function Navigation({ currentUser, logout }) {
     return (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item mr-4">
-          <NavLink to="/listings">Listings</NavLink>
+          <NavLink exact to="/listings">Listings</NavLink>
         </li>
         <li className="nav-item mr-4">
           <Link className="" to="/" onClick={logout}>
-            Log out, { currentUser.username} :(
+            Log out, { currentUser.username}
           </Link>
         </li>
       </ul>
@@ -47,9 +48,9 @@ function Navigation({ currentUser, logout }) {
 
   return (
     <nav className="Navigation navbar navbar-expand-lg">
-      <Link className="navbar-brand" to="/">
+      <NavLink className="navbar-brand font-weight-bold" exact to="/">
         ShareBnB
-      </Link>
+      </NavLink>
       <button
         className="navbar-toggler"
         type="button"
@@ -58,7 +59,7 @@ function Navigation({ currentUser, logout }) {
         aria-controls="navbarSupportedContent"
         aria-expanded="false"
         aria-label="Toggle navigation"
-      >
+        >
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">

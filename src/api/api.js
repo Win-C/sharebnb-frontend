@@ -68,7 +68,7 @@ class ShareBnBApi {
   
   // TODO: Messages endpoints
 
-  // Listings Routes
+  // Listings API routes
 
   /** Get all listings. */
   static async getAllListings(searchParams) {

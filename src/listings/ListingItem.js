@@ -12,22 +12,21 @@ import { Link } from "react-router-dom";
 function ListingItem({ id, title, photo, price, longitude, latitude }){
 
   return (
-    <Link to={`/listings/${id}`}>
-        <div className="card-body bg-light mb-3">
-          <img 
-            className="card-img-top" 
-            src={photo}
-            alt={title}
-            />
-          <h3 className="card-title mt-3">
-            {title}
-          </h3>
-          <div className="card-text">
-            <p><b>${price}</b></p>
-            <span><small>{latitude}, {longitude}</small></span>
-          </div>
-        </div>
-    </Link>
+    /** TODO: add card class in here; showing multiple cards on a line */
+    <div >
+      <div className="card mb-5">
+      <Link to={`/listings/${id}`}>
+        <img 
+          className="card-img-top img-fluid" 
+          src={photo}
+          alt={title}
+          />
+      </Link>
+        <h4 className="card-title mt-2">{title}</h4>
+          <p className="card-text"><b>Price: </b>${price}</p>
+          <p className="card-text mb-2"><b>Location:</b> {latitude}, {longitude}</p>
+      </div>
+    </div>
   )
 }
 
