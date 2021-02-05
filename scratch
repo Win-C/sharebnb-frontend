@@ -1,0 +1,10 @@
+- How approach to project
+- Frontend demo with photo preview 
+- AWS S3 upload directly to storage
+- Frontend demo search capabilities -> nice segue to backend
+    - **Flask do lazy loading?**
+
+
+- seeded database & queries
+- JWT extended & CORS 
+- Backend route for messages by listing in insomnia

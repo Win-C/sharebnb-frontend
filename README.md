@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# ShareBnB 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web application for people to share and rent out their private and public spaces with others. Users create listings that include photos, location, price, # of beds, # of rooms, etc. and are able to search for created listings by price, location, # of beds, and # of bathrooms, etc. Users book listings and message other users regarding a listgin, directly on the platform.  
 
-## Available Scripts
+## Motivation
 
-In the project directory, you can run:
+As we move towards a world where people share more and more things, it’s time we build an application where users can share indoor and outdoor spaces like backyards or pools!
 
-### `yarn start`
+## Screenshots
+TBU with application screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Build status
+- Proof of concept achieved
+- WIP on minimum viable product
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Current features
+- General app functions:
+    - Authenticated users are able to create a listing with photos, price, and other details of the listing
+    - Authenticated users are able to search listings by max_price, latitude, longitude, # of beds and # of bathrooms
+    - Photos when uploaded are stored in Amazon S3, not in a database
+- Backend:
+    - AWS S3 cloud storage created and connected
+    - database for users, listings, and messages
+    - seed database using faker for development
+    - SQL queries for specific user, all listings, specific listing, and messages between users and by listings
+    - CRUD endpoints for users, listings, and messages
+- Frontend: 
+    - Homepage / signup / login / listings / logout
+    - Forms functioning including uploading images with preview
+    - Basic presentational components for listings
 
-### `yarn test`
+## Upcoming features
+- Backend:
+    - auth for admin
+    - auth for same user as logged in, restrict access if false
+    - queries for messages by listing
+    - websockets for more real-time like messaging
+- Frontend:
+    - User profile with listings created and booked 
+    - Messaging page linked to listings with booking capabilities
+    - Interface with a map that updates with listings when moved
+    - Pagination for showing listings
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech stack
+- AWS S3 cloud storage
+- PostgreSQL for database
+- SQLAlchemy for database ORM
+- Flask/Python for backend
+- Create-React-App/React for frontend
 
-### `yarn build`
+## Installing
+**Backend dependencies** include:
+- awscli
+- bcrypt
+- boto3
+- botocore
+- cors
+- faker
+- flask-debugtoolbar
+- flask-jwt-extended
+- flask-sqlalchemy
+- flask-WTForms
+- psycopg2-binary
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Install dependencies using requirements.txt from /sharebnb-backend 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Frontend dependencies** include:
+- axios for requests
+- bootstrap for styling
+- jest *(ships with CRA)*
+- jsonwebtoken for security
+- react-router-dom for routing
 
-### `yarn eject`
+Install dependencies using package.json from /sharebnb-frontend/src 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+TBU with a step by step of how to get a development env running
+TBU include example of being able to get data out of the system or little demo
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Testing
+TBU with explanation on how to run the automated tests for the system 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Deploying
+TBU with notes about how to deploy this on a live system
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Contributing
+Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us. 
 
-## Learn More
+TBU with CONTRIBUTING.md
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Versioning
+TBU
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## API Reference
+TBU with API documentation link
 
-### Code Splitting
+## Authors
+- Alan Tseng
+- Winnie Chou
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+TBU with any additional contributors who participate in the project
 
-### Analyzing the Bundle Size
+## License
+TBU
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Acknowledgments
+Inspiration from Rithm School 'Choose your own adventure' sprint.
+Hat tip to Rithm School 19 cohort classmates for sharing bugs related to the project.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
