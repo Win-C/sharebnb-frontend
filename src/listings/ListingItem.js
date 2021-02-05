@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import ListingDetail from "./ListingDetail";
 
 /** ListingItem for Sharebnb
  *
- * props: none
+ * props: listing obj 
  *
  * state: none
  *
@@ -13,7 +12,7 @@ import ListingDetail from "./ListingDetail";
 function ListingItem({ id, title, photo, price, longitude, latitude }){
 
   return (
-    <Link exact path to={`/listings/${id}`}>
+    <Link to={`/listings/${id}`}>
         <div className="card-body bg-light mb-3">
           <img 
             className="card-img-top" 

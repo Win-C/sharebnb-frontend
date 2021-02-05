@@ -18,15 +18,15 @@ import React, { useState } from "react";
 
 const INITIAL_FORM_DATA = {
   max_price: 1000,
-  latitude: null,
-  longitude: null,
-  beds: 1,
-  bathrooms: 3,
+  latitude: "",
+  longitude: "",
+  beds: "",
+  bathrooms: "",
 };
 
-function SearchForm({ searchFor }) {
+function SearchForm({ searchFor, initialFormData = INITIAL_FORM_DATA }) {
   console.debug("SearchForm", "searchFor=", typeof searchFor);
-  const [formData, setFormData] = useState(INITIAL_FORM_DATA);
+  const [formData, setFormData] = useState(initialFormData);
 
   /** Handle input changes and update form state */
   function handleChange(evt) {
@@ -40,8 +40,14 @@ function SearchForm({ searchFor }) {
   /** Tell parent to filter */
   function handleSubmit(evt) {
     evt.preventDefault();
-    searchFor(formData);
-    setFormData(INITIAL_FORM_DATA);
+    const filteredData = {};
+    for (let k in formData) {
+      if (formData[k] !== "") {
+        filteredData[k] = formData[k];
+      }
+    }
+    searchFor(filteredData);
+    setFormData(initialFormData);
   }
 
   return (

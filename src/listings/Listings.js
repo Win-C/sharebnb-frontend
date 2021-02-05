@@ -24,6 +24,7 @@ function Listings(){
   /** Triggered by search form submit; reloads listings. */
   async function search(searchParams) {
     let listings = await ShareBnBApi.getAllListings(searchParams);
+    console.debug("listings= ", listings);
     setListings(listings);
   }
 
