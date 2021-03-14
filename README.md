@@ -2,6 +2,10 @@
 
 A web application for people to share and rent out their private and public spaces with others. Users create listings that include photos, location, price, # of beds, # of rooms, etc. and are able to search for created listings by price, location, # of beds, and # of bathrooms, etc. Users book listings and message other users regarding a listgin, directly on the platform.  
 
+Check out the deployed app <a href="">here</a>.
+
+Note: the following documentation focuses on the frontend. For backend related documentation and commentary, please go <a href="">here</a> 
+
 ## Motivation
 
 As we move towards a world where people share more and more things, it’s time we build an application where users can share indoor and outdoor spaces like backyards or pools!
@@ -83,28 +87,6 @@ TBU with explanation on how to run the automated tests for the system
 ## Deploying
 TBU with notes about how to deploy this on a live system
 
-## Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us. 
-
-TBU with CONTRIBUTING.md
-
-## Versioning
-TBU
-
-## API Reference
-TBU with API documentation link
-
 ## Authors
-- Alan Tseng
 - Winnie Chou
-
-TBU with any additional contributors who participate in the project
-
-## License
-TBU
-
-## Acknowledgments
-Inspiration from Rithm School 'Choose your own adventure' sprint.
-Hat tip to Rithm School 19 cohort classmates for sharing bugs related to the project.
-
-
+- Alan Tseng (pair programming partner)
