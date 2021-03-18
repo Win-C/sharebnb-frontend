@@ -11,7 +11,11 @@ Note: the following documentation focuses on the frontend. For backend related d
 As we move towards a world where people share more and more things, it’s time we build an application where users can share indoor and outdoor spaces like backyards or pools!
 
 ## Screenshots
-TBU with application screenshots
+
+
+**React Component Hierarchy**
+
+<img src="/static/images/sharebnb-react-component-hierarchy.png" width="600" height="500">
 
 ## Build status
 - Proof of concept achieved

@@ -6,7 +6,7 @@ import ListingItem from "./ListingItem";
  * 
  * state: none
  *
- * Listing -> ListingList
+ * Listings -> ListingList
  **/
 
 function ListingList({ listings }){

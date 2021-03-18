@@ -10,7 +10,7 @@ import LoadingSpinner from "../LoadingSpinner";
  *
  * state: listings: array of listing objects 
  *
- * Routes -> Listing -> { ListingItem, SearchForm }
+ * Routes -> Listings -> { ListingItem, SearchForm }
  **/
 
 function Listings(){

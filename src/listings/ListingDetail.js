@@ -9,7 +9,7 @@ import LoadingSpinner from "../LoadingSpinner";
  *
  * Routed at /listings/:id
  *
- * ListingItem -> ListingDetail
+ * ListingDetail
  */
 
 function ListingDetail() {

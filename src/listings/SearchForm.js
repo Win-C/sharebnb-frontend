@@ -14,7 +14,7 @@ import "../forms.css";
  * State: formData with keys for search_params: 
  *    { max_price, latitude, longitude, beds, bathrooms } 
  *
- * Listing -> SearchForm
+ * Listings -> SearchForm
  */
 
 const INITIAL_FORM_DATA = {
