@@ -15,7 +15,7 @@ As we move towards a world where people share more and more things, it’s time 
 
 **React Component Hierarchy**
 
-<img src="/static/images/sharebnb-react-component-hierarchy.png" width="600" height="30">
+<img src="/static/images/sharebnb-react-component-hierarchy.png" width="600" height="300">
 
 ## Build status
 - Proof of concept achieved
