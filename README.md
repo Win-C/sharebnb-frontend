@@ -1,6 +1,6 @@
 # ShareBnB 
 
-A web application for people to share and rent out their private and public spaces with others. Users create listings that include photos, location, price, # of beds, # of rooms, etc. and are able to search for created listings by price, location, # of beds, and # of bathrooms, etc. Users book listings and message other users regarding a listgin, directly on the platform.  
+A web application for people to share and rent out their private and public spaces with others. Users create listings that include photos, location, price, # of beds, # of rooms, etc. and are able to search for created listings by price, location, # of beds, and # of bathrooms, etc. Users book listings and message other users regarding a listing, directly on the platform.  
 
 Check out the deployed app <a href="">here</a>.
 
@@ -15,7 +15,7 @@ As we move towards a world where people share more and more things, it’s time 
 
 **React Component Hierarchy**
 
-<img src="/static/images/sharebnb-react-component-hierarchy.png" width="600" height="500">
+<img src="/static/images/sharebnb-react-component-hierarchy.png" width="600" height="30">
 
 ## Build status
 - Proof of concept achieved
