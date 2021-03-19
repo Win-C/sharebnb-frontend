@@ -2,16 +2,13 @@
 
 A full stack web application for people to share and rent out their private and public spaces with others. Users create listings that include photos, location, price, # of beds, # of rooms, etc. and are able to search for created listings by price, location, # of beds, and # of bathrooms, etc. Users book listings and message other users regarding a listing, directly on the platform.  
 
-Check out the deployed app <a href="">here</a>.
-
-Note: the following documentation focuses on the frontend. For backend related documentation and commentary, please go <a href="">here</a> 
+For **backend** related documentation and commentary, please go <a href="https://github.com/Win-C/jobly-backend">here</a> 
 
 ## Motivation
 
 As we move towards a world where people share more and more things, it’s time we build an application where users can share indoor and outdoor spaces like backyards or pools!
 
 ## Screenshots
-
 
 **React Component Hierarchy**
 
@@ -56,22 +53,7 @@ As we move towards a world where people share more and more things, it’s time 
 - Flask/Python for backend
 - Create-React-App/React for frontend
 
-## Installing
-**Backend dependencies** include:
-- awscli
-- bcrypt
-- boto3
-- botocore
-- cors
-- faker
-- flask-debugtoolbar
-- flask-jwt-extended
-- flask-sqlalchemy
-- flask-WTForms
-- psycopg2-binary
-
-Install dependencies using requirements.txt from /sharebnb-backend 
-
+## Dependencies
 
 **Frontend dependencies** include:
 - axios for requests
@@ -80,16 +62,15 @@ Install dependencies using requirements.txt from /sharebnb-backend
 - jsonwebtoken for security
 - react-router-dom for routing
 
-Install dependencies using package.json from /sharebnb-frontend/src 
+## Installation
 
-TBU with a step by step of how to get a development env running
-TBU include example of being able to get data out of the system or little demo
+**Frontend Development Setup**
 
-## Testing
-TBU with explanation on how to run the automated tests for the system 
-
-## Deploying
-TBU with notes about how to deploy this on a live system
+Make sure you're in the correct folder. Then go ahead and install the dependencies and start the application:
+```console
+npm install
+npm start
+```
 
 ## Authors
 - Winnie Chou
