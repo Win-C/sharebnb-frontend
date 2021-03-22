@@ -37,7 +37,7 @@ const INITIAL_FORM_DATA = {
   location: "",
 };
 
-function SignupForm({ signup, initialFormData = INITIAL_FORM_DATA }) {
+function SignupForm({ signup }) {
   const [formData, setFormData] = useState(PREFILLED_FORM);
   const [imageSource, setImageSource] = useState("");
   const history = useHistory();
