@@ -2,7 +2,7 @@
 
 Sharebnb is a full stack web application for people to share and rent out their private and public spaces with others. Users create listings that include photos, location, price, # of beds, # of rooms, etc. and are able to search for created listings by price, location, # of beds, and # of bathrooms, etc. Users book listings and message other users regarding a listing, directly on the platform.  
 
-For **backend** related documentation and commentary, please go <a href="https://github.com/Win-C/jobly-backend">here</a> 
+For **backend** related documentation and commentary, please go <a href="https://github.com/Win-C/sharebnb-backend">here</a> 
 
 ## Motivation
 
