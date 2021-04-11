@@ -19,10 +19,10 @@ function Navigation({ currentUser, logout }) {
     return (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item mr-4">
-          <NavLink to="/login">Login</NavLink>
+          <NavLink className="nav-link" to="/login">Login</NavLink>
         </li>
         <li className="nav-item mr-4">
-          <NavLink to="/signup">Sign Up</NavLink>
+          <NavLink className="nav-link" to="/signup">Sign Up</NavLink>
         </li>
       </ul>
     );
@@ -35,11 +35,11 @@ function Navigation({ currentUser, logout }) {
     return (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item mr-4">
-          <NavLink exact to="/listings">Listings</NavLink>
+          <NavLink className="nav-link" to="/listings">Listings</NavLink>
         </li>
         <li className="nav-item mr-4">
-          <Link className="" to="/" onClick={logout}>
-            Log out, { currentUser.username}
+          <Link className="nav-link" to="/" onClick={logout}>
+            Log out { currentUser.first_name || currentUser.username}
           </Link>
         </li>
       </ul>
@@ -51,20 +51,7 @@ function Navigation({ currentUser, logout }) {
       <NavLink className="navbar-brand font-weight-bold" exact to="/">
         ShareBnB
       </NavLink>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-        >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        {currentUser ? renderLoggedInLinks() : renderLoggedOutLinks()}
-      </div>
+      {currentUser ? renderLoggedInLinks() : renderLoggedOutLinks()}
     </nav>
   );
 }
