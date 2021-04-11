@@ -1,9 +1,9 @@
 import { Route, Switch, Redirect } from "react-router-dom";
-import Homepage from './homepage/Homepage';
-import SignupForm from './auth/SignupForm';
-import LoginForm from "./auth/LoginForm";
-import Listings from "./listings/Listings";
-import ListingDetail from "./listings/ListingDetail";
+import Homepage from '../homepage/Homepage';
+import SignupForm from '../auth/SignupForm';
+import LoginForm from "../auth/LoginForm";
+import Listings from "../listings/Listings";
+import ListingDetail from "../listings/ListingDetail";
 import PrivateRoute from './PrivateRoute';
 
 

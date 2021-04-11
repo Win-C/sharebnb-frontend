@@ -1,6 +1,6 @@
+import "./LoginForm.css";
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
-import "../forms.css";
 
 /** Login Form for access to site features
  *

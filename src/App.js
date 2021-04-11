@@ -1,12 +1,12 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import jwt from "jsonwebtoken";
 import { BrowserRouter } from "react-router-dom";
-import Navigation from "./Navigation";
-import Routes from "./Routes";
+import jwt from "jsonwebtoken";
+import Navigation from "./routes-nav/Navigation";
+import Routes from "./routes-nav/Routes";
 import ShareBnBApi from "./api/api";
 import useLocalStorage from "./hooks/useLocalStorage";
-import LoadingSpinner from "./LoadingSpinner";
+import LoadingSpinner from "./common/LoadingSpinner";
 
 const TOKEN_STORAGE_ID = "sharebnb-token";
 

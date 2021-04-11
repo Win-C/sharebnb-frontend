@@ -1,6 +1,6 @@
+import "./SignupForm.css";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import "../forms.css";
 
 /** Signup Form for access to site features
  *
@@ -25,16 +25,6 @@ const PREFILLED_FORM = {
   email: "test@test.com",
   image_url: "",
   location: "test",
-};
-
-const INITIAL_FORM_DATA = {
-  username: "",
-  first_name: "",
-  last_name: "",
-  password: "",
-  email: "",
-  image_url: "",
-  location: "",
 };
 
 function SignupForm({ signup }) {

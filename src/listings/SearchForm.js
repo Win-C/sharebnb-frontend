@@ -1,5 +1,5 @@
+import "./SearchForm.css";
 import React, { useState } from "react";
-import "../forms.css";
 
 /** Search widget.
  *

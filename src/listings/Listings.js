@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import SearchForm from "./SearchForm";
 import ShareBnBApi from "../api/api";
 import ListingList from "./ListingList";
-import LoadingSpinner from "../LoadingSpinner";
+import LoadingSpinner from "../common/LoadingSpinner";
 
 /** Listing for Sharebnb
  *
